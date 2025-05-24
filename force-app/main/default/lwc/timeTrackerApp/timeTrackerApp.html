@@ -1,0 +1,20 @@
+<template>
+    <lightning-tabset active-tab-value={activeTab} onactive={handleTabChange}>
+        <lightning-tab label="Time Entries" value="timeEntries">
+            <c-time-entry-timer></c-time-entry-timer>
+            <c-time-entry-list></c-time-entry-list>
+        </lightning-tab>
+        <lightning-tab label="Calendar View" value="calendarView">
+            <c-time-entry-calendar></c-time-entry-calendar>
+        </lightning-tab>
+        <lightning-tab label="Calendar Sync" value="calendarSync">
+            <c-calendar-sync></c-calendar-sync>
+        </lightning-tab>
+        <lightning-tab label="Budgeting" value="budgeting">
+            <c-budget-manager></c-budget-manager>
+        </lightning-tab>
+        <lightning-tab label="Analytics" value="analytics">
+            <c-analytics-dashboard></c-analytics-dashboard>
+        </lightning-tab>
+    </lightning-tabset>
+</template>
