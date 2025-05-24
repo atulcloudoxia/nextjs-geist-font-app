@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Google Calendar" icon-name="standard:event">
+        <div class="slds-m-around_medium">
+            <lightning-button label="Sync" onclick={handleSync} disabled={isSyncing} icon-name="utility:refresh" variant="brand"></lightning-button>
+        </div>
+        <template if:true={calendarEvents}>
+            <div class="slds-box slds-m-around_small">
+                <template for:each={calendarEvents} for:item="event">
+                    <div key={event.Id} class="slds-grid slds-grid_align-spread slds-p-vertical_xx-small slds-border_bottom">
+                        <div>
+                            <strong>{event.Subject__c}</strong><br/>
+                            <span>{event.Event_Start__c} - {event.Event_End__c}</span><br/>
+                            <span>{event.Description__c}</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:false={calendarEvents}>
+            <p class="slds-p-horizontal_medium">No calendar events found.</p>
+        </template>
+    </lightning-card>
+</template>
