@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Project Budgets" icon-name="standard:currency">
+        <template if:true={budgets}>
+            <div class="slds-box slds-m-around_small">
+                <template for:each={budgets} for:item="budget">
+                    <div key={budget.Id} class="slds-grid slds-grid_align-spread slds-p-vertical_xx-small slds-border_bottom">
+                        <div>
+                            <strong>{budget.Project_Name__c}</strong><br/>
+                        </div>
+                        <div>
+                            Budget: ${budget.Budget_Amount__c}<br/>
+                            Spent: ${budget.Spent_Amount__c}
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:false={budgets}>
+            <p class="slds-p-horizontal_medium">No budgets found.</p>
+        </template>
+    </lightning-card>
+</template>
