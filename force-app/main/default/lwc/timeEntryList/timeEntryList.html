@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Time Entries" icon-name="standard:event">
+        <template if:true={timeEntries}>
+            <div class="slds-box slds-m-around_small">
+                <template for:each={timeEntries} for:item="entry">
+                    <div key={entry.Id} class="slds-grid slds-grid_align-spread slds-p-vertical_xx-small slds-border_bottom">
+                        <div>
+                            <strong>{entry.Start_Time__c} - {entry.End_Time__c}</strong><br/>
+                            <span>{entry.Description__c}</span>
+                        </div>
+                        <div>{entry.Duration__c} min</div>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:false={timeEntries}>
+            <p class="slds-p-horizontal_medium">No time entries found.</p>
+        </template>
+    </lightning-card>
+</template>
